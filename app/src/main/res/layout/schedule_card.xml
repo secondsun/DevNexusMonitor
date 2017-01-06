@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="475px"
+    android:layout_height="425px"
+    android:background="@android:color/holo_blue_light"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/start_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5px"
+        android:padding="0px"
+        android:layout_marginLeft="0px"
+        android:fontFamily="sans-serif"
+        android:text="12:00"
+        android:textColor="@android:color/white"
+        android:textSize="48px" />
+
+    <TextView
+        android:id="@+id/session_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15px"
+        android:padding="0px"
+        android:layout_marginLeft="0px"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif"
+        android:maxLines="3"
+        android:text="Lorium Ipsum 2048 Via a chat bot on the outside"
+        android:textColor="@android:color/white"
+        android:textSize="36px" />
+
+    <TextView
+        android:id="@+id/speaker_name_1"
+        style="@style/roomTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5px"
+        android:padding="0px"
+        android:layout_marginLeft="0px"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif"
+        android:maxLines="3"
+        android:text="Summers Pittman"
+        android:textColor="@android:color/white"
+        android:textSize="24px" />
+
+
+    <TextView
+        android:id="@+id/speaker_name_2"
+        style="@style/roomTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5px"
+
+        android:padding="0px"
+        android:layout_marginLeft="0px"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif"
+        android:maxLines="3"
+        android:text="Summers Pittman"
+        android:textColor="@android:color/white"
+        android:textSize="24px" />
+
+
+    <TextView
+        android:id="@+id/speaker_name_3"
+        style="@style/roomTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5px"
+        android:padding="0px"
+        android:layout_marginLeft="0px"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif"
+        android:maxLines="3"
+        android:text="Summers Pittman"
+        android:textColor="@android:color/white"
+        android:textSize="24px" />
+
+    <TextView
+        android:id="@+id/speaker_name_4"
+        style="@style/roomTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15px"
+        android:padding="0px"
+        android:layout_marginLeft="0px"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif"
+        android:maxLines="3"
+        android:text="Summers Pittman"
+        android:textColor="@android:color/white"
+        android:textSize="24px" />
+
+
+</LinearLayout>

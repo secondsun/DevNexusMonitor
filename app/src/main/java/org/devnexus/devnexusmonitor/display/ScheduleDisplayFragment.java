@@ -14,22 +14,33 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.devnexus.devnexusmonitor.R;
-import org.devnexus.devnexusmonitor.RoomScheduleViewAdapter;
+import org.devnexus.devnexusmonitor.display.helper.RoomScheduleViewAdapter;
 import org.devnexus.devnexusmonitor.util.GsonUtils;
 import org.devnexus.devnexusmonitor.vo.Room;
 import org.devnexus.devnexusmonitor.vo.Schedule;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Calendar;
 import java.util.Date;
-
-import static java.util.Calendar.MONTH;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ScheduleDisplayFragment#newInstance} factory method to
  * create an instance of this fragment.
+ *
+ * How to configure :
+ * Calendar calendar = Calendar.getInstance();
+ * calendar.set(MONTH, Calendar.FEBRUARY);
+ * calendar.set(Calendar.DAY_OF_MONTH, 23);
+ * calendar.set(Calendar.YEAR, 2017);
+ *
+ * Room room = new Room();
+ * room.id = 115;
+ * room.name = "JVM Languages";
+ *
+ * tx.add(R.id.fragment, ScheduleDisplayFragment.newInstance(room, "#a6c4e7", calendar.getTime()), "TAG");
+ * tx.commit();
+ *
  */
 public class ScheduleDisplayFragment extends Fragment {
 
@@ -94,34 +105,36 @@ public class ScheduleDisplayFragment extends Fragment {
     private RecyclerView scheduleRecyclerGrid;
 
 
-    private AsyncTask<Void, Void, Schedule> scheduleLoader = new AsyncTask<Void, Void, Schedule>() {
-        @Override
-        protected Schedule doInBackground(Void... params) {
-            try {
-                return GsonUtils.GSON.fromJson(new InputStreamReader(getActivity().getAssets().open("schedule.json")), Schedule.class);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
-        @Override
-        protected void onPostExecute(Schedule schedule) {
-            super.onPostExecute(schedule);
-            RoomScheduleViewAdapter adapter = new RoomScheduleViewAdapter();
-
-            Room room = new Room();
-            room.id = roomId;
-            room.color = String.format("#%06X", (0xFFFFFF & color));
-            adapter.configure(schedule, date, room);
-            scheduleRecyclerGrid.setAdapter(adapter);
-        }
-    };
 
 
     @Override
     public void onStart() {
         super.onStart();
-        this.scheduleLoader.execute();
+
+        final AsyncTask<Void, Void, Schedule> scheduleLoader = new AsyncTask<Void, Void, Schedule>() {
+            @Override
+            protected Schedule doInBackground(Void... params) {
+                try {
+                    return GsonUtils.GSON.fromJson(new InputStreamReader(getActivity().getAssets().open("schedule.json")), Schedule.class);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            @Override
+            protected void onPostExecute(Schedule schedule) {
+                super.onPostExecute(schedule);
+                RoomScheduleViewAdapter adapter = new RoomScheduleViewAdapter();
+
+                Room room = new Room();
+                room.id = roomId;
+                room.color = String.format("#%06X", (0xFFFFFF & color));
+                adapter.configure(schedule, date, room);
+                scheduleRecyclerGrid.setAdapter(adapter);
+            }
+        };
+
+        scheduleLoader.execute();
     }
 
 

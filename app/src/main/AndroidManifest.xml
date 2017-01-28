@@ -8,6 +8,7 @@
     <uses-feature
         android:name="android.hardware.touchscreen"
         android:required="false" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
         android:allowBackup="true"
@@ -22,12 +23,29 @@
             android:label="@string/title_activity_dev_nexus_monitor"
             android:theme="@style/FullscreenTheme">
             <intent-filter>
-                <category android:name="android.intent.category.LEANBACK_LAUNCHER"></category>
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <service
+            android:name=".service.MessageService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.InstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".service.SessionStateService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

@@ -1,13 +1,13 @@
-package org.devnexus.devnexusmonitor;
+package org.devnexus.devnexusmonitor.display.helper;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.devnexus.devnexusmonitor.R;
 import org.devnexus.devnexusmonitor.vo.Room;
 import org.devnexus.devnexusmonitor.vo.Schedule;
 import org.devnexus.devnexusmonitor.vo.ScheduleItem;
-import org.devnexus.devnexusmonitor.vo.Track;
 
 import java.util.ArrayList;
 import java.util.Calendar;

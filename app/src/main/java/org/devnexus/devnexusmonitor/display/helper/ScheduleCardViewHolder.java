@@ -1,4 +1,4 @@
-package org.devnexus.devnexusmonitor;
+package org.devnexus.devnexusmonitor.display.helper;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
+import org.devnexus.devnexusmonitor.R;
 import org.devnexus.devnexusmonitor.vo.ScheduleItem;
 import org.devnexus.devnexusmonitor.vo.Speaker;
 

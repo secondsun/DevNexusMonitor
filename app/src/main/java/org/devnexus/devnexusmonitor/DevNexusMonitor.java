@@ -15,7 +15,7 @@ import android.view.WindowManager;
 
 import org.devnexus.devnexusmonitor.display.ScheduleDisplayFragment;
 import org.devnexus.devnexusmonitor.display.SetUpFragment;
-import org.devnexus.devnexusmonitor.service.SessionStateService;
+import org.devnexus.devnexusmonitor.service.MediatorService;
 import org.devnexus.devnexusmonitor.vo.Room;
 
 import java.util.Calendar;
@@ -31,11 +31,11 @@ public class DevNexusMonitor extends Activity {
         @Override
         public void onReceive(Context context, Intent intent) {
             switch(intent.getAction()) {
-                case SessionStateService.EVENT_CHANGE_STATE: {
+                case MediatorService.EVENT_CHANGE_STATE: {
                     FragmentManager manager = getFragmentManager();
                     FragmentTransaction tx = manager.beginTransaction();
 
-                    SessionStateService.DisplayState state = (SessionStateService.DisplayState) intent.getSerializableExtra(SessionStateService.EXTRA_CURRENT_STATE);
+                    MediatorService.DisplayState state = (MediatorService.DisplayState) intent.getSerializableExtra(MediatorService.EXTRA_CURRENT_STATE);
 
                     switch (state) {
                         case LOADING:
@@ -92,8 +92,8 @@ public class DevNexusMonitor extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        LocalBroadcastManager.getInstance(this).registerReceiver(sessionStateReceiver, new IntentFilter(SessionStateService.EVENT_CHANGE_STATE));
-        startService(new Intent(this, SessionStateService.class).setAction(SessionStateService.ACTION_EMIT_STATE));
+        LocalBroadcastManager.getInstance(this).registerReceiver(sessionStateReceiver, new IntentFilter(MediatorService.EVENT_CHANGE_STATE));
+        startService(new Intent(this, MediatorService.class).setAction(MediatorService.ACTION_EMIT_STATE));
     }
 
     @Override

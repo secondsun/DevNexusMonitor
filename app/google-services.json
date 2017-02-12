@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "34038018085",
+    "firebase_url": "https://devnexusunifiedplatform.firebaseio.com",
+    "project_id": "devnexusunifiedplatform",
+    "storage_bucket": "devnexusunifiedplatform.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34038018085:android:1bba1323caf75618",
+        "android_client_info": {
+          "package_name": "org.devnexus.devnexusmonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34038018085-c0jnlnv2c14ouce5fe6cg5e5c94hc4ms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMWyOtPTbwObfWlddJeir4FCzgUkh1bbE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

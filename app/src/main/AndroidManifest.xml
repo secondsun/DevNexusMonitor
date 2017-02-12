@@ -44,7 +44,7 @@
         </service>
 
         <service
-            android:name=".service.SessionStateService"
+            android:name=".service.MediatorService"
             android:exported="false"></service>
     </application>
 
